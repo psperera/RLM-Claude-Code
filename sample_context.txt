@@ -1,0 +1,72 @@
+# Sample Document for RLM Testing
+
+## Abstract
+
+This document demonstrates the Recursive Language Model (RLM) architecture for processing long-context documents. The key finding is that separating programmatic navigation from semantic interpretation yields more predictable and cost-effective results than traditional approaches.
+
+## Introduction
+
+Large Language Models have revolutionized text processing, but their application to long documents presents challenges. Traditional approaches load entire documents into context, leading to unpredictable costs and degraded reasoning quality.
+
+The RLM paradigm addresses these issues by treating long context as external state that code navigates, rather than content that the LLM ingests wholesale.
+
+## Methodology
+
+Our approach involves two distinct phases:
+
+1. **Programmatic Narrowing**: Python code searches and slices the context to identify relevant sections. No LLM calls occur during this phase.
+
+2. **Semantic Interpretation**: The LLM performs bounded reasoning on small chunks extracted during phase one. Each subcall has strict token limits.
+
+This separation ensures that costs scale with semantic complexity, not document length.
+
+## Results
+
+Testing on a corpus of 1000 documents ranging from 10KB to 10MB, we observed:
+
+- **Cost Reduction**: 73% average reduction compared to full-context approaches
+- **Quality Improvement**: 18% increase in extraction accuracy
+- **Predictability**: 95% of tasks completed within budget bounds
+
+Critical finding: The two-phase approach eliminates the quality degradation typically seen with large contexts.
+
+## Error Analysis
+
+During testing, we encountered several error conditions:
+
+ERROR [2024-01-15 10:23:45] TokenLimitExceeded: Chunk size 8500 exceeded limit of 4000
+WARNING [2024-01-15 10:23:46] Retrying with smaller chunk size
+ERROR [2024-01-15 11:45:02] CostBudgetExceeded: $0.52 exceeded limit of $0.50
+INFO [2024-01-15 11:45:02] Returning partial results (12 of 15 sections processed)
+
+These errors demonstrate the guard system working as intended—preventing runaway costs while preserving partial progress.
+
+## Discussion
+
+The RLM paradigm represents a fundamental shift in how we approach long-context tasks:
+
+| Aspect | Traditional | RLM |
+|--------|-------------|-----|
+| Context handling | Load all | Navigate programmatically |
+| Cost predictability | Low | High |
+| Reasoning quality | Degrades with length | Consistent |
+| Auditability | Opaque | Explicit |
+
+The key insight is that LLMs excel at semantic reasoning, not orchestration. By limiting their role to interpretation of bounded chunks, we leverage their strengths while mitigating their weaknesses.
+
+## Conclusion
+
+The Recursive Language Model architecture provides a principled approach to long-context processing. By separating programmatic navigation from semantic interpretation and enforcing hard budget limits, we achieve:
+
+1. Predictable, bounded costs
+2. Consistent reasoning quality regardless of document size
+3. Full auditability of every context access and LLM call
+4. Graceful degradation when limits are reached
+
+Future work will explore adaptive chunking strategies and parallel subcall execution within budget constraints.
+
+## References
+
+1. Smith et al. (2024). "Bounded Reasoning in Language Models"
+2. Johnson & Lee (2024). "Cost-Effective Document Processing at Scale"
+3. Chen (2023). "The Limits of Long-Context Windows"

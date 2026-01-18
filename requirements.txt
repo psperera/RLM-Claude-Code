@@ -1,0 +1,8 @@
+# RLM Runtime Dependencies
+# Minimal, vanilla Python with only essential packages
+
+# OpenAI API client (required for LLM subcalls)
+openai>=1.0.0
+
+# Environment variable loading (optional, for .env file support)
+python-dotenv>=1.0.0

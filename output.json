@@ -1,0 +1,62 @@
+
+============================================================
+FINAL_ANSWER
+============================================================
+{
+  "status": "completed",
+  "result": {
+    "analysis": {
+      "document_length": 3419,
+      "title": "Sample Document for RLM Testing",
+      "abstract": "This document demonstrates the Recursive Language Model (RLM) architecture for processing long-context documents. The key finding is that separating programmatic navigation from semantic interpretation yields more predictable and cost-effective results than traditional approaches.",
+      "key_points": [
+        {
+          "position": 166,
+          "line": 5,
+          "claim": "Separating programmatic navigation from semantic interpretation yields more predictable and cost-effective results than traditional approaches.",
+          "confidence": "high"
+        },
+        {
+          "position": 170,
+          "line": 5,
+          "claim": "Separating programmatic navigation from semantic interpretation yields more predictable and cost-effective results than traditional approaches.",
+          "confidence": "high"
+        },
+        {
+          "position": 293,
+          "line": 5,
+          "claim": "Programmatic navigation from semantic interpretation yields more predictable and cost-effective results than traditional approaches.",
+          "confidence": "high"
+        }
+      ],
+      "conclusion": "The Recursive Language Model architecture enhances long-context processing by ensuring predictable costs, consistent reasoning quality, and full auditability, while gracefully managing limitations. Future research will focus on improving chunking strategies and parallel execution within budget constraints.",
+      "document_type": "report"
+    },
+    "metadata": {
+      "sections_found": 7,
+      "claims_analyzed": 3,
+      "has_abstract": true
+    }
+  },
+  "error": null,
+  "budget_summary": {
+    "total_cost_usd": 0.000317,
+    "cost_budget_usd": 0.5,
+    "cost_remaining_usd": 0.499683,
+    "total_calls": 7,
+    "total_input_tokens": 1420,
+    "total_output_tokens": 174,
+    "elapsed_seconds": 6.66,
+    "runtime_limit_seconds": 60.0
+  },
+  "access_log_summary": {
+    "total_operations": 8,
+    "operations_by_type": {
+      "head": 1,
+      "search": 2,
+      "slice": 4,
+      "tail": 1
+    },
+    "total_chars_accessed": 3962
+  }
+}
