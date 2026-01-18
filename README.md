@@ -3,7 +3,7 @@
 > **This is not agent code. This is an RLM runtime.**
 - Based on https://arxiv.org/pdf/2512.24601
 <img width="1695" height="989" alt="image" src="https://github.com/user-attachments/assets/b0ad1102-ff02-4d31-92bb-5cf3632633f5" />
-
+Inspired by https://www.youtube.com/watch?v=huszaaJPjU8
 A production-ready project template implementing the Recursive Language Model (RLM) architecture for Claude Code and other LLM-powered systems.
 
 ## The Problem
